@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import EditorsLeftSide from './EditorsLeftSide/EditorsLeftSide';
 
 const LeftNav = () => {
     const [categories , setCategories] = useState([]);
@@ -22,6 +23,7 @@ const LeftNav = () => {
                     categories?.map(category => <div key={category.id} className='p-2'><Link to={`/category/${category.id}`} className='text-secondary text-decoration-none'>{category.name}</Link></div>)
                 }
             </div>
+            <EditorsLeftSide />
         </div>
     );
 };

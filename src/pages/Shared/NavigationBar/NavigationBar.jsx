@@ -7,7 +7,15 @@ import { Button, Container } from "react-bootstrap";
 import { AuthContext } from "../../../providers/AuthProviders";
 
 const NavigationBar = () => {
-  const { user } = useContext(AuthContext);
+
+  const { user , logOut } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logOut()
+    .then(() => {})
+    .catch((error) => console.error(error.message))
+  };
+
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-white">
       <Container>
@@ -26,7 +34,7 @@ const NavigationBar = () => {
             )}
 
             {user ? (
-              <Button variant="secondary">Logout</Button>
+              <Button onClick={handleLogout} variant="secondary">Logout</Button>
             ) : (
               <Link to="/login">
                 <Button variant="secondary">LogIn</Button>

@@ -9,7 +9,7 @@ const Login = () => {
     const location = useLocation();
     console.log('location pathName:' ,location);
     const {signIn} = useContext(AuthContext);
-    const from = location?.state?.from?.pathname || '/category/0'
+    const from = location?.state?.from?.pathname || 'https://the-news-dragon-server-ffkcq17c2-sifat-ullah-shoyons-projects.vercel.app/categories/0'
 
     const handleLogin = (event) => {
         event.preventDefault();
